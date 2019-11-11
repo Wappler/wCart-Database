@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2019 at 04:42 AM
+-- Generation Time: Nov 11, 2019 at 04:40 AM
 -- Server version: 5.6.17-log
--- PHP Version: 5.5.12
+-- PHP Version: 5.6.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `wcart`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customers`
+--
+
+CREATE TABLE IF NOT EXISTS `customers` (
+  `CustomerID` int(11) NOT NULL AUTO_INCREMENT,
+  `CustomerEmail` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerPassword` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerFirstName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerLastName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerAddress` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerCity` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerState` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerZip` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerCountry` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerPhone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerEmailVerified` tinyint(1) DEFAULT '0',
+  `CustomerRegistrationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `CustomerVerificationCode` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CustomerIP` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`CustomerID`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`CustomerID`, `CustomerEmail`, `CustomerPassword`, `CustomerFirstName`, `CustomerLastName`, `CustomerAddress`, `CustomerCity`, `CustomerState`, `CustomerZip`, `CustomerCountry`, `CustomerPhone`, `CustomerEmailVerified`, `CustomerRegistrationDate`, `CustomerVerificationCode`, `CustomerIP`) VALUES
+(1, 'customer@wappler.io', 'customerwappler', 'John', 'Schmidt', 'Capitool 50', 'Enschede', 'Overijssel', '7521 PL', 'Netherlands', NULL, 0, '2019-11-11 04:29:59', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -88,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `ProductUnlimited` tinyint(1) DEFAULT '1',
   `ProductLocation` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ProductID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=991 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=991 ;
 
 --
 -- Dumping data for table `products`
@@ -101,34 +133,16 @@ INSERT INTO `products` (`ProductID`, `ProductSKU`, `ProductName`, `ProductPrice`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Table structure for table `users`
 --
 
-CREATE TABLE IF NOT EXISTS `customers` (
-  `CustomerID` int(11) NOT NULL AUTO_INCREMENT,
-  `CustomerEmail` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerPassword` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerFirstName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerLastName` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerAddress` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerCity` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerState` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerZip` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerCountry` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerPhone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerEmailVerified` tinyint(1) DEFAULT '0',
-  `CustomerRegistrationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `CustomerVerificationCode` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `CustomerIP` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`CustomerID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `customers`
---
-
-INSERT INTO `customers` (`CustomerID`, `CustomerEmail`, `CustomerPassword`, `CustomerFirstName`, `CustomerLastName`, `CustomerAddress`, `CustomerCity`, `CustomerState`, `CustomerZip`, `CustomerCountry`, `CustomerPhone`, `CustomerEmailVerified`, `CustomerRegistrationDate`, `CustomerVerificationCode`, `CustomerIP`) VALUES
-(1, 'customer@wappler.io', 'customerwappler', 'John', 'Schmidt', 'Enschede', 'Overijssel', '7521 PL', 0, '2019-10-11 16:02:05', NULL, NULL, NULL, NULL, 'Netherlands', 'Capitool 50', NULL);
+CREATE TABLE IF NOT EXISTS `users` (
+  `UserID` int(11) NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserPassword` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `UserLevel` int(11) NOT NULL DEFAULT '2',
+  PRIMARY KEY (`UserID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
