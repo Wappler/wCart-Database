@@ -1,20 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- version 4.9.1
+-- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 11, 2019 at 04:40 AM
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 11, 2019 at 05:58 AM
 -- Server version: 5.6.17-log
--- PHP Version: 5.6.18
+-- PHP Version: 7.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `wcart`
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `customers`
 --
 
+DROP TABLE IF EXISTS `customers`;
 CREATE TABLE IF NOT EXISTS `customers` (
   `CustomerID` int(11) NOT NULL AUTO_INCREMENT,
   `CustomerEmail` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -43,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `CustomerVerificationCode` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `CustomerIP` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`CustomerID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `customers`
@@ -58,6 +61,7 @@ INSERT INTO `customers` (`CustomerID`, `CustomerEmail`, `CustomerPassword`, `Cus
 -- Table structure for table `orderdetails`
 --
 
+DROP TABLE IF EXISTS `orderdetails`;
 CREATE TABLE IF NOT EXISTS `orderdetails` (
   `DetailID` int(11) NOT NULL AUTO_INCREMENT,
   `DetailOrderID` int(11) NOT NULL,
@@ -67,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
   `DetailSKU` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `DetailQuantity` int(11) NOT NULL,
   PRIMARY KEY (`DetailID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -75,6 +79,7 @@ CREATE TABLE IF NOT EXISTS `orderdetails` (
 -- Table structure for table `orders`
 --
 
+DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `OrderID` int(11) NOT NULL AUTO_INCREMENT,
   `OrderCustomerID` int(11) NOT NULL,
@@ -94,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `OrderShipped` tinyint(1) NOT NULL DEFAULT '0',
   `OrderTrackingNumber` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`OrderID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -102,6 +107,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `ProductID` int(12) NOT NULL AUTO_INCREMENT,
   `ProductSKU` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
@@ -120,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `ProductUnlimited` tinyint(1) DEFAULT '1',
   `ProductLocation` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`ProductID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=991 ;
+) ENGINE=MyISAM AUTO_INCREMENT=991 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `products`
@@ -136,13 +142,15 @@ INSERT INTO `products` (`ProductID`, `ProductSKU`, `ProductName`, `ProductPrice`
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `UserPassword` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `UserLevel` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
