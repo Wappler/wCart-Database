@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 11, 2019 at 05:58 AM
+-- Generation Time: Nov 12, 2019 at 01:45 AM
 -- Server version: 5.6.17-log
 -- PHP Version: 7.0.3
 
@@ -21,6 +21,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `wcart`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+CREATE TABLE IF NOT EXISTS `company` (
+  `CompanyID` int(11) NOT NULL AUTO_INCREMENT,
+  `CompanyName` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyAddress` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyCity` varchar(90) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyState` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyZip` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyCountry` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyEmail` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyPhone` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyWebsite` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `CompanyLogo` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`CompanyID`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`CompanyID`, `CompanyName`, `CompanyAddress`, `CompanyCity`, `CompanyState`, `CompanyZip`, `CompanyCountry`, `CompanyEmail`, `CompanyPhone`, `CompanyWebsite`, `CompanyLogo`) VALUES
+(1, 'Anachronistic Fashion House', 'Deventerstraat 513', 'Apeldoorn', 'Gelderland', '7233 RE', 'Nederland', 'info@anachronistic.com', '+31 (0)555 555555', 'https://anachronistic.com', 'assets/images/Anachronistic_logo.jpg');
 
 -- --------------------------------------------------------
 
@@ -133,8 +162,8 @@ CREATE TABLE IF NOT EXISTS `products` (
 --
 
 INSERT INTO `products` (`ProductID`, `ProductSKU`, `ProductName`, `ProductPrice`, `ProductWeight`, `ProductCartDesc`, `ProductShortDesc`, `ProductLongDesc`, `ProductThumb`, `ProductImage`, `ProductCategoryID`, `ProductUpdateDate`, `ProductStock`, `ProductLive`, `ProductUnlimited`, `ProductLocation`) VALUES
-(1, '000-0001', 'Cotton T-Shirt', 9.99, 3, 'Light Cotton T-Shirt', 'A light cotton T-Shirt made with 100% real cotton.', 'A light cotton T-Shirt made with 100% real cotton.\r\n\r\nMade right here in the USA for over 15 years, this t-shirt is lightweight and durable.', '', '', 5, '2019-10-12 00:00:50', 100, 1, 0, NULL),
-(2, '000-0004', 'Los Angeles', 179.99, 8, 'Track and Trail', 'A rugged track and trail athletic shoe', 'A rugged track and trail athletic shoe', '', '', 4, '2019-10-12 00:00:08', 10, 1, 0, NULL);
+(1, '000-0001', 'Cotton T-Shirt', 9.99, 3, 'Light Cotton T-Shirt', 'A light cotton T-Shirt made with 100% real cotton.', 'A light cotton T-Shirt made with 100% real cotton.\r\n\r\nMade right here in the USA for over 15 years, this t-shirt is lightweight and durable.', 'assets/images/t_shirt.jpg', '', 5, '2019-10-12 00:00:50', 100, 1, 0, NULL),
+(2, '000-0004', 'Los Angeles', 179.99, 8, 'Track and Trail', 'A rugged track and trail athletic shoe', 'A rugged track and trail athletic shoe', 'assets/images/shoe.jpg', '', 4, '2019-10-12 00:00:08', 10, 1, 0, NULL);
 
 -- --------------------------------------------------------
 
