@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 12, 2019 at 01:45 AM
--- Server version: 5.6.17-log
--- PHP Version: 7.0.3
+-- Generation Time: Nov 13, 2019 at 04:28 AM
+-- Server version: 5.7.28
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -178,7 +178,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `UserPassword` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `UserLevel` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`UserID`, `UserName`, `UserPassword`, `UserLevel`) VALUES
+(1, 'user@wappler.io', 'wappleruser', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
