@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `UserPassword` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `UserLevel` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
